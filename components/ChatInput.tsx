@@ -116,7 +116,17 @@ const ChatInput = ({ className, ...props }: Props) => {
             {isLoading ? (
               <MoreHorizontal className=" w-5 h-5 text-gray-950 animate-pulse" />
             ) : (
-              <CornerRightUp className=" w-5 h-5 cursor-pointer hover:text-gray-700" />
+              <CornerRightUp
+                className=" w-5 h-5 cursor-pointer hover:text-gray-700"
+                onClick={() => {
+                  const payload: Message = {
+                    id: nanoid(),
+                    isUserSent: true,
+                    message: input,
+                  };
+                  sendMessage(payload);
+                }}
+              />
             )}
           </kbd>
         </div>
