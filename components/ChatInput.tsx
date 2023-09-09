@@ -124,6 +124,7 @@ const ChatInput = ({ className, ...props }: Props) => {
                     isUserSent: true,
                     message: input,
                   };
+                  setInput("");
                   sendMessage(payload);
                 }}
               />
